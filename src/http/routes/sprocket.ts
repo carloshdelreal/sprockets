@@ -8,6 +8,7 @@ const participantRoutes: ServerRoute[] = [
     path: '/sprockets',
     options: {
       description: 'Gets sprockets',
+      auth: false,
       handler: getSprocketsHandler,
     },
   },

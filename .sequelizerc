@@ -1,0 +1,20 @@
+const babelFactory = require('./babel.config.factory');
+
+/**
+ * Need to include @babel/register here because we're directly importing a .ts file,
+ * as do the seeder files later and hence why we need ignore:[] to ensure they get processed.
+ */
+
+require('@babel/register')({
+  ...babelFactory(),
+  extensions: ['.es6', '.es', '.ts', '.js', '.mjs'],
+});
+
+const path = require('path');
+
+module.exports = {
+  config: path.resolve('src/db/configForSequelize.ts'),
+  'migrations-path': path.resolve('migrations'),
+  'models-path': path.resolve('src/domain/models/index.ts'),
+  'seeders-path': path.resolve('seeders'),
+};

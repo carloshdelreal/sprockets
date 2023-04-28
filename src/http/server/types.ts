@@ -10,40 +10,40 @@ export enum AuthStrategies {
   JWT_ID = 'pharm_auto_registered-jwt_id',
 }
 
-export interface ServerOptions {
+export type ServerOptions = {
   options?: Hapi.ServerOptions;
   healthcheck?: (request: Hapi.Request, h: Hapi.ResponseToolkit) => Hapi.ResponseObject;
   rollbar?: boolean;
   swagger?: boolean;
-  routes?: Hapi.ServerRoute[] | string;
+  routes: Hapi.ServerRoute[] | string;
   authStrategies?: AuthStrategy[];
-  jwtIdSecret?: boolean | string;
+  jwtIdSecret?: string;
   defaultAuthStrategy?: boolean | string;
-}
+};
 
-export interface AuthStrategy {
+export type AuthStrategy = {
   name: string;
   scheme: string;
   options: object;
-}
+};
 
-export interface PluginOptions {
+export type PluginOptions = {
   rollbar?: string | boolean;
   swagger?: boolean;
-}
+};
 
-export interface AxiosErrorResponse {
+export type AxiosErrorResponse = {
   statusText: string;
   status: number;
-}
+};
 
-export interface HapiAxiosBoomResponse {
+export type HapiAxiosBoomResponse = {
   response?: AxiosErrorResponse;
   isAxiosError?: boolean;
-}
+};
 
-export interface RequestTimes {
+export type RequestTimes = {
   onRequest?: number;
-}
+};
 
 export default {};

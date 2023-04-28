@@ -1,23 +1,19 @@
 {
-  "extends": "@tsconfig/node12/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "emitDecoratorMetadata": true,
+    "baseUrl": "./src",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "incremental": true,
-    "lib": ["es6"],
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
     "noImplicitAny": false,
-    "outDir": "dist",
-    "removeComments": true,
     "resolveJsonModule": true,
-    "rootDir": ".",
-    "sourceMap": true,
-    "strictPropertyInitialization": false,
-    "target": "es6"
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es2019"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["seeders/**/*", "src/**/*", "tests/**/*"],
+  "exclude": []
 }
