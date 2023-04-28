@@ -1,14 +1,23 @@
 import Factory, { FactoryModelStatic } from './Factory';
 import Sprocket, { SprocketModelStatic} from './Sprocket';
+import FactoryProduction, { FactoryProductionModelStatic } from './FactoryProduction';
+
+Factory.hasMany(FactoryProduction, {
+  foreignKey: 'factoryId'
+});
+
+FactoryProduction.belongsTo(Factory);
 
 export default {
   Sprocket,
-  Factory
+  Factory,
+  FactoryProduction,
 };
 
 export type ModelType = {
   Sprocket: SprocketModelStatic;
-  Factory: FactoryModelStatic
+  Factory: FactoryModelStatic;
+  FactoryProduction: FactoryProductionModelStatic;
 };
 
 export type ModelNames = keyof ModelType;
