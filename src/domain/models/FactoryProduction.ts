@@ -1,12 +1,14 @@
 import { BuildOptions, DataTypes, Model } from 'sequelize';
 import sequelize from '../../db';
 
-const { INTEGER, BIGINT } = DataTypes;
+const { INTEGER, BIGINT, DATE } = DataTypes;
 
 export class FactoryProduction extends Model {
   id: number;
   factoryId: number;
   production: number;
+  goal: number;
+  date: Date;
 }
 
 FactoryProduction.init(
@@ -24,6 +26,12 @@ FactoryProduction.init(
     },
     production: {
       type: INTEGER
+    },
+    goal: {
+      type: INTEGER
+    },
+    date: {
+      type: DATE
     }
   },
   {

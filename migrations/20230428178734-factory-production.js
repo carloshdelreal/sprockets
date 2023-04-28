@@ -18,6 +18,12 @@ module.exports = {
         },
         production: {
           type: Sequelize.INTEGER
+        },
+        goal: {
+          type: Sequelize.INTEGER
+        },
+        date: {
+          type: Sequelize.DATE
         }
       },
       {
