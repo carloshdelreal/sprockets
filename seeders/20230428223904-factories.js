@@ -1,6 +1,6 @@
 'use strict';
 
-import { generateBulkSprockets } from '../src/utils/seeders';
+import { generateBulkFactories } from '../src/utils/seeders';
 
 export async function up(queryInterface, Sequelize) {
   /**
@@ -12,10 +12,10 @@ export async function up(queryInterface, Sequelize) {
    *   isBetaMember: false
    * }], {});
   */
-  const sprockets = await generateBulkSprockets();
+  const factories = await generateBulkFactories();
 
   try {
-    await queryInterface.bulkInsert('sprockets', sprockets, {});
+    await queryInterface.bulkInsert('factories', factories, {});
   } catch (err) {
     console.error(err);
     throw err;
@@ -29,5 +29,5 @@ export async function down(queryInterface, Sequelize) {
    * Example:
    * await queryInterface.bulkDelete('People', null, {});
    */
-  await queryInterface.bulkDelete('sprockets', null, {});
+  await queryInterface.bulkDelete('factories', null, {});
 }
