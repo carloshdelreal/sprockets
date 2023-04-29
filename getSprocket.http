@@ -1,0 +1,6 @@
+@host = http://localhost:3000
+
+GET {{host}}/sprocket/902b4645-b379-446c-92aa-89d77145fc7b
+
+###
+GET {{host}}/sprockets

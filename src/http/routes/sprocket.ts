@@ -1,6 +1,6 @@
 import { ServerRoute } from '@hapi/hapi';
 // import * as Joi from '@hapi/joi'
-import { getSprocketsHandler } from '../handlers';
+import { getSprocketsHandler, getSprocketHandler } from '../handlers';
 
 const participantRoutes: ServerRoute[] = [
   {
@@ -10,6 +10,15 @@ const participantRoutes: ServerRoute[] = [
       description: 'Gets sprockets',
       auth: false,
       handler: getSprocketsHandler,
+    },
+  },
+  {
+    method: 'GET',
+    path: '/sprocket/{sprocketId}',
+    options: {
+      description: 'Gets sprocket by its id',
+      auth: false,
+      handler: getSprocketHandler,
     },
   },
 ];

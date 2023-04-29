@@ -6,6 +6,7 @@ import { FactoryProduction } from '../models/FactoryProduction';
 export type PowerflexInterface = {
   allSprockets(): Promise<Sprocket[]>;
   getFactory(id: number): Promise<Factory>
+  getSprocket(id: string): Promise<Sprocket>
 };
 
 export class Powerflex implements PowerflexInterface {
@@ -18,6 +19,10 @@ export class Powerflex implements PowerflexInterface {
         model: models.FactoryProduction,
         attributes: ['production', 'goal', 'date']
       }});
+  }
+
+  async getSprocket(id: string): Promise<Sprocket> {
+      return models.Sprocket.findByPk(id);
   }
 }
 
