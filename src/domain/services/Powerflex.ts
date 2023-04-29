@@ -2,7 +2,6 @@ import { NewSprocket } from '../../types';
 import models from '../models';
 import { Factory } from '../models/Factory';
 import { Sprocket } from '../models/Sprocket';
-import { FactoryProduction } from '../models/FactoryProduction';
 
 export type PowerflexInterface = {
   allSprockets(): Promise<Sprocket[]>;
