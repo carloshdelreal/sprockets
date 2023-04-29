@@ -4,18 +4,20 @@ import { Sprocket } from '../models/Sprocket';
 import { FactoryProduction } from '../models/FactoryProduction';
 
 export type PowerflexInterface = {
-  allSprockets(): Promise<{sprockets: Sprocket[], factories: Factory[], production: FactoryProduction[]}>;
+  allSprockets(): Promise<Sprocket[]>;
+  getFactory(id: number): Promise<Factory>
 };
 
 export class Powerflex implements PowerflexInterface {
   async allSprockets() {
-    const sprockets = await models.Sprocket.findAll();
-    const factories = await models.Factory.findAll();
-    const production = await models.FactoryProduction.findAll();
+    return models.Sprocket.findAll();
+  }
 
-    return {
-      sprockets, factories, production
-    };
+  async getFactory(id: number): Promise<Factory> {
+      return models.Factory.findByPk(id, {include: {
+        model: models.FactoryProduction,
+        attributes: ['production', 'goal', 'date']
+      }});
   }
 }
 
