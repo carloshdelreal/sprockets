@@ -22,18 +22,7 @@ module.exports = {
         },
         pitch: {
           type: Sequelize.INTEGER,
-        },
-        created_at: {
-          type: Sequelize.DATE,
-        },
-        updated_at: {
-          allowNull: false,
-          type: Sequelize.DATE,
-        },
-        deleted_at: {
-          allowNull: true,
-          type: Sequelize.DATE,
-        },
+        }
       },
       {
         underscored: true,

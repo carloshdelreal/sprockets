@@ -1,6 +1,28 @@
 @host = http://localhost:3000
 
-GET {{host}}/sprocket/902b4645-b379-446c-92aa-89d77145fc7b
+GET {{host}}/sprocket/0190e715-91eb-4159-9b58-9809a3ae02d8
 
 ###
 GET {{host}}/sprockets
+
+### new sprocket
+POST {{host}}/sprocket
+Content-Type: application/json
+
+{
+  "teeth": 9,
+  "pitchDiameter": 9,
+  "outsideDiameter": 9,
+  "pitch": 9
+}
+
+### update sprocket
+PUT {{host}}/sprocket/0190e715-91eb-4159-9b58-9809a3ae02d8
+Content-Type: application/json
+
+{
+  "teeth": 9,
+  "pitchDiameter": 9,
+  "outsideDiameter": 9,
+  "pitch": 9
+}

@@ -13,8 +13,24 @@ export const getSprocketsHandler = async (request: Request): Promise<ResponseObj
 export const getSprocketHandler = async (request: Request): Promise<ResponseObject> => {
   const sprocketId: string = request.params.sprocketId;
   try {
-    const sprocket = await Powerflex.getSprocket(sprocketId);
-    return sprocket;
+    return Powerflex.getSprocket(sprocketId);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const createSprocketHandler = async (request: Request): Promise<ResponseObject> => {
+  try {
+    return Powerflex.createSprocket(request.payload);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const updateSprocketHandler = async (request: Request): Promise<ResponseObject> => {
+  const sprocketId: string = request.params.sprocketId;
+  try {
+    return Powerflex.updateSprocket(sprocketId, request.payload);
   } catch (e) {
     console.log(e);
   }

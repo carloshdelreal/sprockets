@@ -1,10 +1,10 @@
-import { BuildOptions, DataTypes, Model } from 'sequelize';
+import { BuildOptions, DataTypes, Model, UUID } from 'sequelize';
 import sequelize from '../../db';
 
-const { INTEGER } = DataTypes;
+const { INTEGER, UUIDV4 } = DataTypes;
 
 export class Sprocket extends Model {
-  id!: number;
+  id!: string;
   teeth!: number;
   pitchDiameter!: number;
   outsideDiameter!: number;
@@ -14,10 +14,10 @@ export class Sprocket extends Model {
 Sprocket.init(
   {
     id: {
-      type: INTEGER,
+      type: UUID,
+      allowNull: false,
+      defaultValue: UUIDV4,
       primaryKey: true,
-      autoIncrementIdentity: true,
-      autoIncrement: true,
     },
     teeth: {
       type: INTEGER,
