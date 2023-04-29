@@ -1,5 +1,5 @@
 import { ServerRoute } from '@hapi/hapi';
-import * as Joi from '@hapi/joi';
+import Joi from 'joi';
 import { getSprocketsHandler, getSprocketHandler, createSprocketHandler, updateSprocketHandler } from '../handlers';
 
 const participantRoutes: ServerRoute[] = [
